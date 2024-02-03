@@ -1,21 +1,21 @@
-import java.util.ArrayList;
-
 class Solution {
     public int[] solution(int[] arr, int[][] intervals) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-                
+        int sum_index = 0;  
+        int idx = 0;
+        
+        for(int i = 0; i < intervals.length; i++) {
+            sum_index += intervals[i][1] - intervals[i][0] + 1;
+        }
+        
+        int[] answer = new int[sum_index];
+        
         for(int i = 0; i < intervals.length; i++) {
             int idx_a = intervals[i][0];
             int idx_b = intervals[i][1];
             
-            for(int j = idx_a; j <= idx_b; j++) {
-                result.add(arr[j]);
+            for(int j = idx_a; j <= idx_b ; j++) {
+                answer[idx++] = arr[j];
             }
-        }
-        
-        int[] answer = new int[result.size()];
-        for(int i = 0; i < result.size(); i++) {
-            answer[i] = result.get(i);
         }
         return answer;
     }
