@@ -1,15 +1,15 @@
 class Solution {
     public String[] solution(String my_string) {
         String[] answer = {};
-        int count = 0;
+        int count = 1;
         
         for(int i = 0; i < my_string.length(); i++) {
             if(my_string.charAt(i) == ' ') 
                 count++;
         }
 
-        answer = new String[count + 1];
-        if(count == 0) {
+        answer = new String[count];
+        if(count == 1) {
             answer[0] = my_string;
         }
         
