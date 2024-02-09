@@ -43,7 +43,6 @@ class Solution {
             
             if(ch == 'x') {
                 if(ch == myString.charAt(i + 1)) continue;
-                else count++;
             }
             else {
                 if(myString.charAt(i+1) == 'x') {
