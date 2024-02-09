@@ -8,7 +8,7 @@ class Solution {
         
         for(int i = 0; i < myString.length(); i++) {
             if(i == myString.length() - 1) {
-                if(myString.charAt(i) == 'x') continue;
+                if(myString.charAt(i) == 'x') break;
                 else {
                     count++;
                     break;
