@@ -13,12 +13,10 @@ class Solution {
                 continue;
             }
             
-            if(arr[i] != arr[i-1]) {
-            	if(temp.contains(arr[i])) continue;
-            	else {
-            		temp.add(arr[i]);
-            		count++;
-            	}
+            if(temp.contains(arr[i])) continue;
+            else {
+            	temp.add(arr[i]);
+            	count++;
             }
         }
         
