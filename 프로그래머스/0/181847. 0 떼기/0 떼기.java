@@ -18,7 +18,7 @@ class Solution {
             }
         }
         
-        answer += num;
+        answer = String.valueOf(num);
         return answer;
     }
 }
