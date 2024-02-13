@@ -3,23 +3,21 @@ import java.util.*;
 class Solution {
     public int[] solution(int[] arr, int[] delete_list) {
         int[] answer = {};
-        boolean[] arr_delete_check = new boolean[arr.length];
-        int count = 0;
+        ArrayList<Integer> temp = new ArrayList<Integer>();
         
         for(int i = 0; i < arr.length; i++) {
-            for(int j = 0; j < delete_list.length; j++) {
-                if(arr[i] == delete_list[j]) {
-                    arr_delete_check[i] = true;
-                    count++;
-                }
+            temp.add(arr[i]);
+        }
+            
+        for(int i = 0; i < delete_list.length; i++) {
+            if(temp.contains(delete_list[i])) {
+                temp.remove((Integer)delete_list[i]);
             }
         }
         
-        answer = new int[arr.length - count];
-        for(int i = 0, j = 0; i < arr.length; i++) {
-            if(!arr_delete_check[i]) {
-                answer[j++] = arr[i];
-            }
+        answer = new int[temp.size()];
+        for(int i = 0; i < temp.size(); i++) {
+            answer[i] = temp.get(i);
         }
         
         return answer;
