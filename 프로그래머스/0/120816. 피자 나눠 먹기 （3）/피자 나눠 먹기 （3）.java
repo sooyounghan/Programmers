@@ -1,19 +1,19 @@
 class Solution {
     public int solution(int slice, int n) {
         int answer = 0;
+        int pizza = 1;
         
-        for(int i = 1; ;i++) {
+        while((pizza * slice) / n != 1) {
             if(n == 1) {
                 answer = 1;
                 return answer;
             }
             
-            else if((i * slice) / n == 1){
-                answer = i;
-                return answer;
+            else {
+                pizza++;
             } 
-            
-            else continue;
-        }        
+        }  
+        answer = pizza;
+        return answer;
     }
 }
