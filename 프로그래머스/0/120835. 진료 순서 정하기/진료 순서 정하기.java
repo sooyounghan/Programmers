@@ -2,24 +2,23 @@ class Solution {
     public int[] solution(int[] emergency) {
         int[] answer = new int[emergency.length];
         boolean[] visit = new boolean[emergency.length];
-        int idx_max_emergency = -1;
+        int max_priority_index = -1;
         int priority = 1;
-            
+        
         while(priority <= emergency.length) {
-            int max_priority = Integer.MIN_VALUE;
-                                             
+            int max_emergency = Integer.MIN_VALUE;
+
             for(int i = 0; i < emergency.length; i++) {
                 if(!visit[i]) {
-                    if(max_priority < emergency[i]) {
-                        max_priority = emergency[i];
-                        idx_max_emergency = i;
+                    if(max_emergency < emergency[i]) {
+                        max_emergency = emergency[i];
+                        max_priority_index = i;
                     }
                 }
-                else continue;
             }
 
-            visit[idx_max_emergency] = true;
-            answer[idx_max_emergency] = priority++;
+            visit[max_priority_index] = true;
+            answer[max_priority_index] = priority++;
         }
         
         return answer;
