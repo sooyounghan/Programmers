@@ -1,32 +1,46 @@
 class Solution {
     public int solution(String my_string) {
-        String[] my_string_arr = my_string.split(" ");
         int answer = 0;
-        String op = "";
-    
-        for(int i = 0; i < my_string_arr.length; i++) {
-            if(my_string_arr[i].equals("+")) {
-                op = my_string_arr[i];
+        String temp = "";
+        int num1 = 0;
+        int num2 = 0;
+        char op = ' ';
+        
+        for(int i = 0; i < my_string.length(); i++) {
+            char ch = my_string.charAt(i);
+            if(i == my_string.length() - 1) {
+                temp += ch;
+                num2 = Integer.parseInt(temp);
+                temp = "";
+                break;
             }
-            else if(my_string_arr[i].equals("-")) {
-                op = my_string_arr[i];
+            
+            if(ch != ' ') {
+                if(ch == '+' || (ch == '-' && my_string.charAt(i + 1) == ' ')) {
+                    op = ch;
+                }
+                else {
+                    temp += ch;
+                }
             }
-            else {
-            	if(op.equals("")) answer += Integer.parseInt(my_string_arr[i]);
-            	else {
-            		switch(op) {
-	            		case "+" :
-	            			answer += Integer.parseInt(my_string_arr[i]);
-	            			op = "";
-	            			break;
-	            		case "-" :
-	            			answer -= Integer.parseInt(my_string_arr[i]);
-	            			op = "";
-	            			break;
-            		}
-            	}
+            
+            else if(ch == ' ') {
+                if(temp.equals("")) continue;
+                
+                num1 = Integer.parseInt(temp);
+                temp = "";
             }
         }
+        
+        switch(op) {
+            case '+' :
+                answer = num1 + num2;
+                break;
+            case '-' :
+                answer = num1 - num2;
+                break;
+        }
+        
         return answer;
     }
 }
