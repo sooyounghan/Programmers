@@ -1,11 +1,14 @@
 class Solution {
     public String solution(String phone_number) {
         String answer = "";
+        char[] phone_number_arr = phone_number.toCharArray();
         
-        String secret_phone_number = phone_number.substring(0, phone_number.length() - 4);
-        secret_phone_number = secret_phone_number.replaceAll("[0-9]", "*");
+        for(int i = 0; i < phone_number_arr.length - 4; i++) {
+            phone_number_arr[i] = '*';
+        }
         
-        answer = secret_phone_number + phone_number.substring(phone_number.length() - 4);
+        answer = String.valueOf(phone_number_arr);
+        
         return answer;
     }
 }
